@@ -159,6 +159,204 @@ public class RationalTest {
 	Rational r = Rational.product(r_m3_1,r_1_m3);
 	assertEquals("1",r.toString());
     }
+    
+    //test lcm
+    @Test
+    public void test_lcm_m6_3(){
+        assertEquals(6,Rational.lcm(-6,3));
+    }
  
+    @Test
+    public void test_lcm_6_m3(){
+        assertEquals(6,Rational.lcm(6,-3));
+    }
+    
+    @Test
+    public void test_lcm_3_7(){
+        assertEquals(21,Rational.lcm(3,7));
+    }
+    
+    //test plus
+    @Test
+    public void test_plus_r20_25_and_r25_20(){
+        Rational r_20_25 = new Rational(20,25);
+        Rational r_25_20 = new Rational(25,20);
+        assertEquals("41/20", r_25_20.plus(r_20_25).toString());
+    }
+    
+    @Test
+    public void test_plus_r3_7_and_r13_4(){
+        Rational r_3_7 = new Rational(3,7);
+        Rational r_13_4 = new Rational(13,4);
+        assertEquals("103/28", r_3_7.plus(r_13_4).toString());
+    }
+    
+    @Test
+    public void test_plus_r0_1_and_r24_6(){
+        Rational r_0_1 = new Rational(0,1);
+        Rational r_24_6 = new Rational(24,6);
+        assertEquals("4", r_0_1.plus(r_24_6).toString());
+    }
+    
+    @Test
+    public void test_plus_m3_1_r5_m7(){
+        Rational r_m3_1 = new Rational(-3,1);
+        Rational r5_m7 = new Rational(5,-7);
+        assertEquals("-26/7", r_m3_1.plus(r5_m7).toString());
+    }
+    
+    //test sum of 2 radicals
+    @Test
+    public void test_sum_r20_25_and_r25_20(){
+        Rational r_20_25 = new Rational(20,25);
+        Rational r_25_20 = new Rational(25,20);
+        assertEquals("41/20", (Rational.sum(r_20_25, r_25_20)).toString());
+    }
+    
+    @Test
+    public void test_sum_r0_1_and_r24_6(){
+        Rational r_0_1 = new Rational(0,1);
+        Rational r_24_6 = new Rational(24,6);
+        assertEquals("4", (Rational.sum(r_0_1, r_24_6)).toString());
+    }
+    
+    @Test
+    public void test_sum_m3_1_r5_m7(){
+        Rational r_m3_1 = new Rational(-3,1);
+        Rational r5_m7 = new Rational(5,-7);
+        assertEquals("-26/7", (Rational.sum(r_m3_1,r5_m7)).toString());
+    }
+   
+    //test minus
+    @Test
+    public void test_minus_r20_25_and_r25_20(){
+        Rational r_20_25 = new Rational(20,25);
+        Rational r_25_20 = new Rational(25,20);
+        assertEquals("9/20", r_25_20.minus(r_20_25).toString());
+    }
+    
+    @Test
+    public void test_minus_r3_7_and_r13_4(){
+        Rational r_3_7 = new Rational(3,7);
+        Rational r_13_4 = new Rational(13,4);
+        assertEquals("-79/28", r_3_7.minus(r_13_4).toString());
+    }
+    
+    @Test
+    public void test_minus_r0_1_and_r24_6(){
+        Rational r_0_1 = new Rational(0,1);
+        Rational r_24_6 = new Rational(24,6);
+        assertEquals("-4", r_0_1.minus(r_24_6).toString());
+    }
+    
+    @Test
+    public void test_minus_m3_1_r5_m7(){
+        Rational r_m3_1 = new Rational(-3,1);
+        Rational r5_m7 = new Rational(5,-7);
+        assertEquals("-16/7", r_m3_1.minus(r5_m7).toString());
+    }
+    
+    //test subtract
+    @Test
+    public void test_sub_r20_25_and_r25_20(){
+        Rational r_20_25 = new Rational(20,25);
+        Rational r_25_20 = new Rational(25,20);
+        assertEquals("9/20", (Rational.difference(r_25_20, r_20_25)).toString());
+    }
+    
+    @Test
+    public void test_sub_r3_7_and_r13_4(){
+        Rational r_3_7 = new Rational(3,7);
+        Rational r_13_4 = new Rational(13,4);
+        assertEquals("-79/28", (Rational.difference(r_3_7,r_13_4)).toString());
+    }
+    
+    @Test
+    public void test_sub_r0_1_and_r24_6(){
+        Rational r_0_1 = new Rational(0,1);
+        Rational r_24_6 = new Rational(24,6);
+        assertEquals("-4", (Rational.difference(r_0_1,r_24_6)).toString());
+    }
+    
+    @Test
+    public void test_sub_m3_1_r5_m7(){
+        Rational r_m3_1 = new Rational(-3,1);
+        Rational r5_m7 = new Rational(5,-7);
+        assertEquals("-16/7", (Rational.difference(r_m3_1, r5_m7)).toString());
+    }
+    
+    //test recip
+    @Test(expected = IllegalArgumentException.class)
+    public void test_recip_0_1(){
+        Rational r_0_1 = new Rational(0,1);
+        Rational rattt = r_0_1.reciprocalOf();
+    }
+    
+    @Test
+    public void test_recip_m3_1(){
+        Rational r_m3_1 = new Rational(-3,1);
+        assertEquals("-1/3", (r_m3_1.reciprocalOf()).toString());
+    }
+    
+    @Test
+    public void test_recip_13_4(){
+        Rational r_13_4 = new Rational(13,4);
+        assertEquals("4/13", (r_13_4.reciprocalOf()).toString());
+    }
+    
+    //test divided by
+    
+    @Test
+    public void test_div_r3_7_and_r13_4(){
+        Rational r_3_7 = new Rational(3,7);
+        Rational r_13_4 = new Rational(13,4);
+        assertEquals("12/91", (r_3_7.dividedBy(r_13_4)).toString());
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void test_div_r0_1_and_r24_6(){
+        Rational r_0_1 = new Rational(0,1);
+        Rational r_24_6 = new Rational(24,6);
+        Rational rattt = r_24_6.dividedBy(r_0_1);
+    }
+    
+    @Test
+    public void test_div_m3_1_r5_m7(){
+        Rational r_m3_1 = new Rational(-3,1);
+        Rational r5_m7 = new Rational(5,-7);
+        assertEquals("21/5", (r_m3_1.dividedBy(r5_m7)).toString());
+    }
+    
+    //test quotient
+    @Test
+    public void test_q_r3_7_and_r13_4(){
+        Rational r_3_7 = new Rational(3,7);
+        Rational r_13_4 = new Rational(13,4);
+        assertEquals("12/91", (Rational.quotient(r_3_7,r_13_4)).toString());
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void test_q_r0_1_and_r24_6(){
+        Rational r_0_1 = new Rational(0,1);
+        Rational r_24_6 = new Rational(24,6);
+        Rational rattt = Rational.quotient(r_24_6, r_0_1);
+    }
+    
+    @Test
+    public void test_q_m3_1_r5_m7(){
+        Rational r_m3_1 = new Rational(-3,1);
+        Rational r5_m7 = new Rational(5,-7);
+        assertEquals("21/5", (Rational.quotient(r_m3_1,r5_m7)).toString());
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
