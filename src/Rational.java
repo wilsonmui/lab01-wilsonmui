@@ -133,7 +133,7 @@ public class Rational {
         int tempNum = this.denom;
         int tempDen = this.num;
         
-        if (tempNum == 0)
+        if (tempDen == 0)
             throw new ArithmeticException();
         return new Rational(tempNum, tempDen);
     }
