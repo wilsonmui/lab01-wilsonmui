@@ -134,7 +134,7 @@ public class Rational {
         int tempDen = this.num;
         
         if (tempNum == 0)
-            throw new IllegalArgumentException("denom cannot be zero");
+            throw new ArithmeticException();
         return new Rational(tempNum, tempDen);
     }
 
